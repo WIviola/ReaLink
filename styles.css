@@ -110,9 +110,11 @@ html, body {
   object-fit: contain;
   max-width: 100%;
 }
+
 .header-left .logo-img {
-  height: 100px;
+  height: 70px;
 }
+
 .header-right .logo-img {
   height: 40px;
 }
@@ -120,7 +122,7 @@ html, body {
   height: 80px;
 }
 
-/* === Headertext z. B. bei Startseite oder Anleitung === */
+/* === Headertext z.B. bei Startseite oder Anleitung === */
 .header-text {
   font-size: 1.2em;
   font-weight: bold;
