@@ -189,7 +189,7 @@ html, body {
 .rtw {
   width: 40px;
   height: 40px;
-  background: url('rtw.png') no-repeat center center;
+  background: url('assets/rtw.png') no-repeat center center;
   background-size: contain;
   position: absolute;
   top: -20px;
