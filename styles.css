@@ -1,0 +1,384 @@
+/* === Basiseinstellungen für das gesamte Layout === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === Titel des aktuellen Schritts (oben im Container) === */
+#step-title {
+  text-align: left;
+  font-size: 1.6em;
+  margin-bottom: 8px;
+  margin-top: 1px;
+  color: #00B165;
+}
+
+/* === Standardformatierung für Schritt-Texte, außer Zeitangaben === */
+.step p:not(.timeline-text):not(.time-remaining) {
+  font-size: 1.1em;
+  color: #3A3A3A;
+  text-align: left;
+  margin: 12px auto;
+  line-height: 1.5;
+  width: 100%;
+}
+
+/* === Haupt-Container der Inhalte === */
+.container {
+  margin-top: 60px;
+  padding: 16px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding-bottom: 100px; /* Platz über dem fixierten Footer */
+}
+
+/* === Sichtbarkeitssteuerung der Schritte === */
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
+}
+
+/* === Header während der Anleitung (grauer Balken mit Logo) === */
+.cpr-header {
+  background: #555555;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 16px;
+  font-size: 1.2em;
+  height: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* === Logo im Header (Startseite) === */
+.index-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #55555520;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* === Logo-Formatierungen === */
+.logo-img {
+  height: 40px;
+  object-fit: contain;
+  max-width: 100%;
+}
+.header-left .logo-img {
+  height: 100px;
+}
+.header-right .logo-img {
+  height: 40px;
+}
+.logo {
+  height: 80px;
+}
+
+/* === Headertext z. B. bei Startseite oder Anleitung === */
+.header-text {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* === Fortschrittsbalken ganz oben === */
+.page-progress-bar {
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.page-progress {
+  width: 0%;
+  height: 100%;
+  background: #00B165;
+  transition: width 0.3s ease-in-out;
+}
+
+/* === Medien wie Bilder oder Videos in den Schritten === */
+.step img,
+.step video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto 5px auto;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* === Spezialfall: Video mit mehr Abstand unten === */
+#step3 video {
+  margin-bottom: 20px;
+}
+
+/* === Optional: horizontale grüne Linie zur Tiefenanzeige (wenn verwendet) === */
+.depth-line {
+  width: 8cm;
+  height: 2px;
+  background: #5aad5f;
+  margin: 12px auto 8px auto;
+  position: relative;
+}
+.depth-line span {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  font-size: 0.9em;
+  color: #444;
+}
+
+/* === Zeitstrahl für die 10 Minuten Dauer === */
+.timeline-banner {
+  width: 100%;
+  background: #f8f8f8;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 5vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.timeline-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto 10px auto;
+  padding: 0;
+}
+.timeline {
+  position: relative;
+  background: #ddd;
+  height: 10px;
+  border-radius: 5px;
+  overflow: visible;
+  z-index: 1;
+}
+.timeline-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 1s ease-in-out;
+  z-index: 1;
+}
+
+/* === RTW-Grafik, die sich über den Zeitstrahl bewegt === */
+.rtw {
+  width: 40px;
+  height: 40px;
+  background: url('rtw.png') no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  z-index: 2;
+  transition: left 1s ease-in-out;
+}
+
+/* === Texte im Zeitstrahl (Mitte & unten) === */
+.timeline-text,
+.time-remaining {
+  color: #555;
+  font-size: 1.1em;
+  text-align: left;
+  margin: 6px 0;
+  line-height: 1.4;
+  font-weight: bold;
+  word-wrap: break-word;
+}
+
+/* === Navigation am unteren Bildschirmrand === */
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: #ddd;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 999;
+}
+
+/* === Navigationsbuttons (Zurück, Weiter, Beenden) === */
+.nav-btn, .end-btn {
+  background: #00B165;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 150px;
+  cursor: pointer;
+}
+.nav-btn:hover {
+  background: #00b164cf;
+}
+.end-btn {
+  background: #f28b82;
+}
+.end-btn:hover {
+  background: #e57373;
+}
+
+/* === Versteckte Elemente, z. B. Beenden-Button bis aktiv === */
+.hidden {
+  display: none;
+}
+
+/* === Fußzeile für Startseite === */
+.footer {
+  background-color: #e0e0e0;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  color: #777;
+}
+
+/* === Startbutton auf Startseite === */
+.start-btn2 {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  max-width: 300px;
+  text-align: center;
+}
+
+/* === Responsive Anpassung für kleine Displays === */
+@media (max-width: 480px) {
+  .container {
+      padding: 12px;
+  }
+
+  .nav-btn, .end-btn {
+      width: 45%;
+      font-size: 1em;
+      padding: 12px;
+  }
+
+  .timeline-banner {
+      padding: 10px 4vw;
+      padding-bottom: 80px;
+  }
+}
+
+/* === Willkommensbereich auf Startseite === */
+.welcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  text-align: left;
+  padding: 40px 20px;
+}
+.main-title {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  color: #555;
+}
+.green-bold {
+  color: #00B165;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 1.1em;
+  color: #3A3A3A;
+  text-align: left;
+  margin: 12px auto;
+  line-height: 1.5;
+  width: 100%;
+}
+
+/* === Maßband zur Anzeige von 6cm Drucktiefe === */
+.ruler-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+.ruler {
+  border-bottom: 4px solid red;
+  position: absolute;
+  transform: rotate(90deg) translateY(-100%);
+  z-index: 10;
+  transform-origin: top left;
+  margin: 10px auto 5px auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.ruler-mark {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #333;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.ruler-mark::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 10px;
+  background-color: black;
+  margin-bottom: 1px;
+}
+
+/* === Wrapper für Maßband + Video nebeneinander === */
+.video-ruler-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* === Videogröße allgemein === */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === Abschlussbereich (Dank & Info) === */
+.ende-banner {
+  width: 100%;
+  background: #f8f8f8;
+  border-top: 1px solid #00B165;
+  border-bottom: 1px solid #00B165;
+  padding: 12px 5vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
