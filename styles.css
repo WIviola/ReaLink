@@ -11,13 +11,26 @@ html, body {
   min-height: 100vh;
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (max-width: 768px) and (orientation: landscape) {
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 10px;
+  }
+
+  .step-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .step-text, .step-media {
+    flex: 1;
+  }
+  .step-content.no-media {
+    flex-direction: column;
   }
 
   .index-header {
@@ -34,14 +47,42 @@ html, body {
   .start-btn2 {
     margin-top: 20px;
   }
+
+  .cpr-header {
+    height: 10px;
+    padding: 0 12px;
+    font-size: 0.85em;
+  }
+
+  .cpr-header .logo {
+    height: 24px;
+  }
+
+  /* Schritt-Titel weiter nach unten schieben */
+  #step-title {
+    margin-top: 50px;
+    font-size: 1.3em;
+  }
+  .navigation {
+    padding: 5px 10px;
+  }
+
+  .nav-btn, .end-btn {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    width: auto;
+    min-width: 100px;
+ 
+  }
 }
+  
 
 /* === Titel des aktuellen Schritts (oben im Container) === */
 #step-title {
   text-align: left;
   font-size: 1.6em;
   margin-bottom: 8px;
-  margin-top: 1px;
+  margin-top: 80px;
   color: #00B165;
 }
 
@@ -83,12 +124,13 @@ html, body {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 20px 16px;
+  padding: 10px 16px;
   font-size: 1.2em;
-  height: 10px;
+  height: 60px;  /* <-- Korrekt setzen */
   display: flex;
   align-items: center;
 }
+
 
 /* === Logo im Header (Startseite) === */
 .index-header {
@@ -408,4 +450,42 @@ video {
   text-align: center;
   font-size: 1em;
   margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  /* Kompakter Header */
+  .cpr-header {
+    height: 32px;
+    padding: 4px 8px;
+    font-size: 0.85em;
+  }
+
+  .cpr-header .logo {
+    height: 22px;
+  }
+
+  /* Kompakter Footer */
+  .navigation {
+    padding: 4px 8px;
+    background: #ddd;
+  }
+
+  .nav-btn,
+  .end-btn {
+    font-size: 0.85em;
+    padding: 6px 10px;
+    width: auto;
+    min-width: 80px;
+  }
+
+  /* Platz für step-title */
+  #step-title {
+    margin-top: 45px;
+    font-size: 1.3em;
+  }
+
+  /* Container muss genug Abstand oben haben */
+  .container {
+    margin-top: 50px !important;
+    padding-bottom: 80px !important;
+  }
 }

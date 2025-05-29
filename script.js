@@ -226,3 +226,14 @@ window.addEventListener("DOMContentLoaded", () => {
     ruler.style.width = `${cmInPixels}px`;
   }
 });
+
+//===has Überprüfung ===
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll('.step-content');
+  steps.forEach(step => {
+    const hasMedia = step.querySelector('img, video, .video-ruler-wrapper');
+    if (!hasMedia) {
+      step.classList.add('no-media');
+    }
+  });
+});

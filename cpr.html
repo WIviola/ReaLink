@@ -31,79 +31,82 @@
     <!-- Titel des aktuellen Schritts -->
     <h1 id="step-title">Druckpunkt finden</h1>
 
-    <!-- Schritt 1: Handposition -->
-    <div class="step active" id="step1" tabindex="0">
-      <p><strong>Knien Sie</strong> sich <strong>neben den Oberkörper.</strong></p>
-      <p>Legen Sie die <strong>Handflächen</strong> flach übereinander <strong>mittig auf</strong> den <strong>Brustkorb.</strong></p>
-      <img src="assets/Druckpunkt.png" alt="Hände mittig auf dem Brustkorb positioniert" />
-    </div>
-
-    <!-- Schritt 2: Druckposition -->
-    <div class="step" id="step2" tabindex="0">
-      <p><strong>Beugen </strong>Sie sich mit dem Oberkörper <strong>über die Person.</strong></p>
-      <p><strong>Arme durchgestreckt.</p>
-      <p>Drücken</strong> Sie <strong>kräftig senkrecht</strong> nach unten.</p>
-      <img src="assets/Druckposition.png" alt="Person mit durchgestreckten Armen über Brustkorb gebeugt" />
-    </div>
-
-    <!-- Schritt 3: Rhythmus & Tiefe -->
-    <div class="step" id="step3" tabindex="0">
-      <p>Der<strong> Brustkorb gibt </strong>spürbar<strong> nach</strong> - bleiben Sie dabei, das ist entscheidend.</p>
-      <p><strong>Im Takt des Tons:</strong> Drücken - entlasten - drücken - entlasten.</p>
-
-      <!-- Warnhinweis, falls Audio nicht abgespielt werden kann -->
-      <p id="audioWarning" style="display:none; color:#b00020; font-weight:bold; text-align:center;">
-        🔇 Bitte deaktivieren Sie den Stummmodus, um den Taktton zu hören.
-      </p>
-
-      <!-- MP3-Audioelement für das Metronom -->
-      <audio id="metronomAudio" aria-label="Metronom-Ton zur Unterstützung des Reanimationstakts">
-        <source src="assets/metronom_110bpm.mp3" type="audio/mp3">
-      </audio>
-
-      <!-- Optionales Videoelement für alternative iOS-Nutzung -->
-      <div id="iosVideoWrapper" style="display:none; text-align:center;">
-        <video id="metronomVideo" controls playsinline width="300" aria-label="Metronom-Video zur Unterstützung des Reanimationstakts">
-          <source src="metronom_110bpm_video.mp4" type="video/mp4">
-          Ihr Browser unterstützt kein Video.
-        </video>
+   <!-- Schritt 1 -->
+  <div class="step active" id="step1" tabindex="0">
+    <div class="step-content">
+      <div class="step-text">
+        <p><strong>Knien Sie</strong> sich <strong>neben den Oberkörper.</strong></p>
+        <p>Legen Sie die <strong>Handflächen</strong> flach übereinander <strong>mittig auf</strong> den <strong>Brustkorb.</strong></p>
       </div>
+      <div class="step-media">
+        <img src="assets/Druckpunkt.png" alt="Hände mittig auf dem Brustkorb positioniert" />
+      </div>
+    </div>
+  </div>
 
-      <!-- Bereich mit Lineal + CPR-Video (zur Drucktiefe-Visualisierung) -->
-      <div class="video-ruler-wrapper">
-        <div id="headerRuler" class="ruler-container" aria-hidden="true">
-          <div class="ruler">
-            <!-- Markierungen in Zentimetern (0–6 cm) -->
-            <div class="ruler-mark" style="left: 0%">0&nbsp;</div>
-            <div class="ruler-mark" style="left: 16.66%">1</div>
-            <div class="ruler-mark" style="left: 33.33%">2</div>
-            <div class="ruler-mark" style="left: 50%">3</div>
-            <div class="ruler-mark" style="left: 66.66%">4</div>
-            <div class="ruler-mark" style="left: 83.33%">5</div>
-            <div class="ruler-mark" style="left: 100%">6&nbsp;cm</div>
-          </div>
+     <!-- Schritt 2 -->
+  <div class="step" id="step2" tabindex="0">
+    <div class="step-content">
+      <div class="step-text">
+        <p><strong>Beugen </strong>Sie sich mit dem Oberkörper <strong>über die Person.</strong></p>
+        <p><strong>Arme durchgestreckt.</p>
+        <p>Drücken</strong> Sie <strong>kräftig senkrecht</strong> nach unten.</p>
+      </div>
+      <div class="step-media">
+        <img src="assets/Druckposition.png" alt="Person mit durchgestreckten Armen über Brustkorb gebeugt" />
+      </div>
+    </div>
+  </div>
+
+    <!-- Schritt 3 -->
+  <div class="step" id="step3" tabindex="0">
+    <div class="step-content">
+      <div class="step-text">
+        <p>Der<strong> Brustkorb gibt </strong>spürbar<strong> nach</strong> – bleiben Sie dabei, das ist entscheidend.</p>
+        <p><strong>Im Takt des Tons:</strong> Drücken - entlasten - drücken - entlasten.</p>
+        <p id="audioWarning" style="display:none; color:#b00020; font-weight:bold; text-align:center;">
+          🔇 Bitte deaktivieren Sie den Stummmodus, um den Taktton zu hören.
+        </p>
+        <audio id="metronomAudio" aria-label="Metronom-Ton zur Unterstützung des Reanimationstakts">
+          <source src="assets/metronom_110bpm.mp3" type="audio/mp3">
+        </audio>
+        <div id="iosVideoWrapper" style="display:none; text-align:center;">
+          <video id="metronomVideo" controls playsinline width="300" aria-label="Metronom-Video zur Unterstützung des Reanimationstakts">
+            <source src="metronom_110bpm_video.mp4" type="video/mp4">
+          </video>
         </div>
-        <!-- Autoplay-Video mit Animation der Wiederbelebung -->
-        <video autoplay muted loop playsinline width="100%" aria-label="Animation der Reanimation mit Drucktiefe-Visualisierung">
-          <source src="assets/Animation%20CPR%20heller%20Hintergrund.mp4" type="video/mp4" id="druckbild" />
-        </video>
       </div>
-
-      <!-- Zeitstrahl-Banner zur Visualisierung der Einsatzdauer -->
-      <div class="timeline-banner">
-        <p class="timeline-text" id="timelineText"></p>
-        <div class="timeline-wrapper">
-          <div class="timeline" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-            <!-- Fortschrittsbalken für 10 Minuten -->
-            <div class="timeline-progress" id="timelineProgress"></div>
-            <!-- RTW-Grafik (Rettungswagen) -->
-            <div class="rtw" id="rtw" aria-hidden="true"></div>
+      <div class="step-media">
+        <div class="video-ruler-wrapper">
+          <div id="headerRuler" class="ruler-container" aria-hidden="true">
+            <div class="ruler">
+              <div class="ruler-mark" style="left: 0%">0&nbsp;</div>
+              <div class="ruler-mark" style="left: 16.66%">1</div>
+              <div class="ruler-mark" style="left: 33.33%">2</div>
+              <div class="ruler-mark" style="left: 50%">3</div>
+              <div class="ruler-mark" style="left: 66.66%">4</div>
+              <div class="ruler-mark" style="left: 83.33%">5</div>
+              <div class="ruler-mark" style="left: 100%">6&nbsp;cm</div>
+            </div>
           </div>
-          <!-- Countdown-Anzeige -->
-          <p class="time-remaining" id="timeRemaining">Noch ca. 10 Minuten</p>
+          <video autoplay muted loop playsinline width="100%" aria-label="Animation der Reanimation mit Drucktiefe-Visualisierung">
+            <source src="assets/Animation%20CPR%20heller%20Hintergrund.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
+    <!-- Timeline -->
+    <div class="timeline-banner">
+      <p class="timeline-text" id="timelineText"></p>
+      <div class="timeline-wrapper">
+        <div class="timeline" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="timeline-progress" id="timelineProgress"></div>
+          <div class="rtw" id="rtw" aria-hidden="true"></div>
+        </div>
+        <p class="time-remaining" id="timeRemaining">Noch ca. 10 Minuten</p>
+      </div>
+    </div>
+  </div>
 
     <!-- Schritt 4: Abschluss + Dank -->
     <div class="step" id="step4" tabindex="0">
