@@ -10,23 +10,26 @@
 
     <!-- Automatische Weiterleitung nach 15 Sekunden auf cpr.html -->
     <meta http-equiv="refresh" content="15; url=cpr.html">
+
+    <!-- WCAG: Add ARIA landmark roles -->
+    <meta name="description" content="REA:Link – Ihr Reanimations-Assistent für schnelle Hilfe im Notfall. Folgen Sie der Anleitung Schritt für Schritt.">
 </head>
 <body>
 
     <!-- Header mit zwei Logos (Projektlogo & THM) -->
-    <header class="index-header">
+    <header class="index-header" role="banner">
         <div class="header-left">
             <!-- Rea:Link Logo -->
-            <img src="assets/ReaLink%20Logo%20neu%202.0%20kein%20Hintegrund.png" alt="ReaLink-Logo" class="logo-img" />
+            <img src="assets/ReaLink%20Logo%20neu%202.0%20kein%20Hintegrund.png" alt="ReaLink-Logo: Reanimations-Assistent" class="logo-img" />
         </div>
         <div class="header-right">
             <!-- THM-Logo -->
-            <img src="assets/THM_Logo_4c.png" alt="THM-Logo" class="logo-img" />
+            <img src="assets/THM_Logo_4c.png" alt="Logo der Technischen Hochschule Mittelhessen (THM)" class="logo-img" />
         </div>
     </header>
 
     <!-- Hauptbereich mit Begrüßung und Startbutton -->
-    <main class="welcome">
+    <main class="welcome" role="main">
         <!-- Titel der Seite -->
         <h1 class="main-title"><span class="green-bold">REA:Link</span> – Reanimations-Assistent</h1>
 
@@ -35,11 +38,11 @@
         <p class="subtitle">Folgen Sie der <strong>Anleitung – Schritt für Schritt</strong></p>
 
         <!-- Manuell klickbarer Button zur Anleitung -->
-        <a href="cpr.html" class="start-btn2">Start Reanimationsanleitung</a>
+        <a href="cpr.html" class="start-btn2" role="button" aria-label="Starten Sie die Reanimationsanleitung">Start Reanimationsanleitung</a>
     </main>
 
     <!-- Fußzeile mit Projektinfos -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <p>Ein Projekt von Viola Winter und Marlon Jouhoff</p>
         <p>Technische Hochschule Mittelhessen (THM)</p>
     </footer>
