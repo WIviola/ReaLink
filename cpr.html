@@ -59,54 +59,60 @@
   </div>
 
     <!-- Schritt 3 -->
-  <div class="step" id="step3" tabindex="0">
-    <div class="step-content">
-      <div class="step-text">
-        <p>Der<strong> Brustkorb gibt </strong>spürbar<strong> nach</strong> – bleiben Sie dabei, das ist entscheidend.</p>
-        <p><strong>Im Takt des Tons:</strong> Drücken - entlasten - drücken - entlasten.</p>
-       <!--  <p id="audioWarning" style="display:none; color:#b00020; font-weight:bold; text-align:center;">
-          🔇 Bitte deaktivieren Sie den Stummmodus, um den Taktton zu hören.
-        </p>-->
-        <audio id="metronomAudio" aria-label="Metronom-Ton zur Unterstützung des Reanimationstakts">
-          <source src="assets/metronom_110bpm.mp3" type="audio/mp3">
-        </audio>
-        <div id="iosVideoWrapper" style="display:none; text-align:center;">
-          <video id="metronomVideo" controls playsinline width="300" aria-label="Metronom-Video zur Unterstützung des Reanimationstakts">
-            <source src="metronom_110bpm_video.mp4" type="video/mp4">
-          </video>
-        </div>
+<div class="step" id="step3" tabindex="0">
+  <div class="step-content">
+
+    <!-- Vertikale Timeline (nur sichtbar auf kleinen Geräten im Landscape) -->
+    <div class="timeline-vertical" style="display: none;">
+      <div class="timeline timeline-vertical-bar" role="progressbar">
+        <div class="timeline-progress" id="timelineProgressVertical"></div>
+        <div class="rtw-vertical" id="rtwVertical" aria-hidden="true"></div>
       </div>
-      <div class="step-media">
-        <div class="video-ruler-wrapper">
-          <div id="headerRuler" class="ruler-container" aria-hidden="true">
-            <div class="ruler">
-              <div class="ruler-mark" style="left: 0%">0&nbsp;</div>
-              <div class="ruler-mark" style="left: 16.66%">1</div>
-              <div class="ruler-mark" style="left: 33.33%">2</div>
-              <div class="ruler-mark" style="left: 50%">3</div>
-              <div class="ruler-mark" style="left: 66.66%">4</div>
-              <div class="ruler-mark" style="left: 83.33%">5</div>
-              <div class="ruler-mark" style="left: 100%">6&nbsp;cm</div>
-            </div>
-          </div>
-          <video autoplay muted loop playsinline width="100%" aria-label="Animation der Reanimation mit Drucktiefe-Visualisierung">
-            <source src="assets/Animation%20CPR%20heller%20Hintergrund.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
+      <p class="time-remaining vertical-label" id="timeRemainingVertical">ca. 10 Min</p>
     </div>
-    <!-- Timeline -->
-    <div class="timeline-banner">
-      <p class="timeline-text" id="timelineText"></p>
-      <div class="timeline-wrapper">
-        <div class="timeline" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-          <div class="timeline-progress" id="timelineProgress"></div>
-          <div class="rtw" id="rtw" aria-hidden="true"></div>
+
+    <!-- Hauptinhalt -->
+    <div class="step-text">
+     
+      <p><strong>Der Brustkorb gibt spürbar nach</strong> – bleiben Sie dabei, das ist entscheidend.</p>
+      <p><strong>Im Takt des Tons:</strong> Drücken - entlasten - drücken - entlasten.</p>
+      <audio id="metronomAudio" aria-label="Metronom-Ton">
+        <source src="assets/metronom_110bpm.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+
+    <div class="step-media">
+      <div class="video-ruler-wrapper">
+        <div class="ruler-container" aria-hidden="true">
+          <div class="ruler">
+            <div class="ruler-mark" style="left: 0%">0&nbsp;</div>
+            <div class="ruler-mark" style="left: 16.66%">1</div>
+            <div class="ruler-mark" style="left: 33.33%">2</div>
+            <div class="ruler-mark" style="left: 50%">3</div>
+            <div class="ruler-mark" style="left: 66.66%">4</div>
+            <div class="ruler-mark" style="left: 83.33%">5</div>
+            <div class="ruler-mark" style="left: 100%">6&nbsp;cm</div>
+          </div>
         </div>
-        <p class="time-remaining" id="timeRemaining">Noch ca. 10 Minuten</p>
+        <video autoplay muted loop playsinline width="100%">
+          <source src="assets/Animation%20CPR%20heller%20Hintergrund.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </div>
+
+  <!-- Horizontale Timeline (sichtbar auf Desktop und Portrait) -->
+  <div class="timeline-banner">
+    <p class="timeline-text" id="timelineText">Drücken Sie im Takt des Tons!</p>
+    <div class="timeline-wrapper">
+      <div class="timeline" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="timeline-progress" id="timelineProgress"></div>
+        <div class="rtw" id="rtw" aria-hidden="true"></div>
+      </div>
+      <p class="time-remaining" id="timeRemaining">Noch ca. 10 Minuten</p>
+    </div>
+  </div>
+</div>
 
     <!-- Schritt 4: Abschluss + Dank -->
     <div class="step" id="step4" tabindex="0">

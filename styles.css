@@ -281,6 +281,7 @@ html, body {
   padding: 12px 5vw;
   box-sizing: border-box;
   overflow-x: hidden;
+  display: block;
 }
 .timeline-wrapper {
   width: 100%;
@@ -561,6 +562,63 @@ video {
     
 
   }
+    .step-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  
+    .timeline-vertical {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      width: 32px;
+      margin-right: 10px;
+    }
+
+    
+  
+    .timeline-vertical-bar {
+      height: 50vh;
+      width: 6px;
+      background: #ccc;
+      position: relative;
+      border-radius: 3px;
+    }
+  
+    .timeline-vertical-bar .timeline-progress {
+      width: 100%;
+      height: 0%; /* per JS gesetzt */
+      background: linear-gradient(to bottom, #4caf50, #81c784);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  
+    .rtw-vertical {
+      width: 20px;
+      height: 20px;
+      background: url('assets/rtw.png') no-repeat center center;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      left: -7px;
+    }
+  
+    .vertical-label {
+      font-size: 0.7em;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: 5px;
+      text-align: center;
+    }
+  
+    /* Zeitstrahl unten ausblenden */
+    .timeline-banner {
+      display: none !important;
+    }
+  
   
 }
 
@@ -572,5 +630,23 @@ video {
   .container {
     margin-top: 60px !important; /* war 60px + zusätzlich im Landscape mehr */
   }
+  @media screen and (max-width: 768px) and (orientation: landscape) {
+    /* Nur auf kleinen Geräten (Smartphones im Landscape) vertikale Timeline anzeigen */
+    .timeline-banner {
+      display: none !important;
+    }
+  
+    .timeline-vertical {
+      display: flex !important;
+    }
+    .timeline-banner {
+      display: block;
+    }
+  
+    .timeline-vertical {
+      display: none !important;
+    }
+  }
+  
 }
 

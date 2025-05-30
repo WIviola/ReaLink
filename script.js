@@ -80,14 +80,31 @@ endBtn.addEventListener("click", () => {
 });
 
 // === Fortschritt der "RTW"-Anfahrt simulieren ===
+
 function moveRTW() {
   minuteCounter++;
   const percentage = (minuteCounter / 10) * 100;
   const remaining = Math.max(0, 10 - minuteCounter);
 
+  // Horizontale Timeline
   timelineProgress.style.width = `${percentage}%`;
   rtw.style.left = `calc(${percentage}% - 20px)`;
+  timelineText.textContent = getTimelineText(minuteCounter);
+  timeRemaining.textContent = `Noch ca. ${remaining} Minute${remaining === 1 ? "" : "n"}`;
 
+  // Vertikale Timeline (falls sichtbar)
+  const timelineProgressVertical = document.getElementById('timelineProgressVertical');
+  const rtwVertical = document.getElementById('rtwVertical');
+  const timeRemainingVertical = document.getElementById('timeRemainingVertical');
+
+  if (timelineProgressVertical && rtwVertical && timeRemainingVertical) {
+    timelineProgressVertical.style.height = `${percentage}%`;
+    rtwVertical.style.top = `calc(${percentage}% - 10px)`;
+    timeRemainingVertical.textContent = `ca. ${remaining} Min`;
+  }
+}
+
+function getTimelineText(minute) {
   const texts = [
     "Drücken Sie im Takt des Tons!",
     "Jeder Druck bringt Blut zum Gehirn.",
@@ -100,10 +117,33 @@ function moveRTW() {
     "Kräftig weiterdrücken, auch wenn es knackt!",
     "Drücken Sie weiter bis Sie vom Rettungsdienst abgelöst werden!"
   ];
-
-  timelineText.textContent = texts[Math.min(minuteCounter - 1, texts.length - 1)];
-  timeRemaining.textContent = `Noch ca. ${remaining} Minute${remaining === 1 ? "" : "n"}`;
+  return texts[Math.min(minute - 1, texts.length - 1)];
 }
+
+// === function moveRTW() {
+ // minuteCounter++;
+ // const percentage = (minuteCounter / 10) * 100;
+ // const remaining = Math.max(0, 10 - minuteCounter);
+
+  //timelineProgress.style.width = `${percentage}%`;
+  //rtw.style.left = `calc(${percentage}% - 20px)`;
+
+ // const texts = [
+  //  "Drücken Sie im Takt des Tons!",
+   // "Jeder Druck bringt Blut zum Gehirn.",
+    //"Sehr gut - das rettet Leben",
+    //"Weiterdrücken - bis Sie abgelöst werden",
+    //"Jeder Druck bringt Blut zum Gehirn.",
+    //"Kräftig weiterdrücken, auch wenn es knackt!",
+    //"Sehr gut - das rettet Leben",
+    //"Jeder Druck bringt Blut zum Gehirn.",
+    //"Kräftig weiterdrücken, auch wenn es knackt!",
+    //"Drücken Sie weiter bis Sie vom Rettungsdienst abgelöst werden!"
+  //];
+
+  //timelineText.textContent = texts[Math.min(minuteCounter - 1, texts.length - 1)];
+  //timeRemaining.textContent = `Noch ca. ${remaining} Minute${remaining === 1 ? "" : "n"}`;
+//}
 
 // === Startet Metronomton über MP3-Datei ===
 function startMetronomAudio() {
@@ -226,6 +266,14 @@ window.addEventListener("DOMContentLoaded", () => {
     ruler.style.width = `${cmInPixels}px`;
   }
 });
+function updateTimeline(progress) {
+  const progressElement = document.getElementById('timelineProgress');
+  const rtwElement = document.getElementById('rtw');
+
+  progressElement.style.height = `${progress}%`;
+  rtwElement.style.top = `calc(${progress}% - 10px)`;
+}
+
 
 //===has Überprüfung ===
 document.addEventListener("DOMContentLoaded", () => {
