@@ -45,7 +45,7 @@ function showStep(index) {
   if (index === 2 && !rtwTimerStarted) {
     rtwTimerStarted = true;
     moveRTW();
-    setInterval(moveRTW, 60000);
+    rtwIntervalId = setInterval(moveRTW, 60000);
     startMetronome(); // startet MP3/Video in Dauerschleife
   }
 
@@ -81,28 +81,70 @@ endBtn.addEventListener("click", () => {
 
 // === Fortschritt der "RTW"-Anfahrt simulieren ===
 
+let rtwIntervalId = null; // global definieren
 function moveRTW() {
+  if (minuteCounter >= 10) {
+    clearInterval(rtwIntervalId);
+    return;
+  }
+
   minuteCounter++;
   const percentage = (minuteCounter / 10) * 100;
   const remaining = Math.max(0, 10 - minuteCounter);
 
-  // Horizontale Timeline
-  timelineProgress.style.width = `${percentage}%`;
-  rtw.style.left = `calc(${percentage}% - 20px)`;
-  timelineText.textContent = getTimelineText(minuteCounter);
-  timeRemaining.textContent = `Noch ca. ${remaining} Minute${remaining === 1 ? "" : "n"}`;
+  // === Horizontale Timeline (Desktop/Portrait) ===
+  const timeline = document.querySelector(".timeline-wrapper .timeline");
+  const timelineProgress = document.getElementById("timelineProgress");
+  const rtw = document.getElementById("rtw");
 
-  // Vertikale Timeline (falls sichtbar)
-  const timelineProgressVertical = document.getElementById('timelineProgressVertical');
-  const rtwVertical = document.getElementById('rtwVertical');
-  const timeRemainingVertical = document.getElementById('timeRemainingVertical');
+  if (timeline && timelineProgress && rtw && timeline.offsetWidth > 0) {
+    const rtwWidth = rtw.offsetWidth;
+    const timelineWidth = timeline.offsetWidth;
+    const maxLeft = timelineWidth - rtwWidth;
+    const newLeft = Math.min((percentage / 100) * timelineWidth, maxLeft);
 
-  if (timelineProgressVertical && rtwVertical && timeRemainingVertical) {
+    timelineProgress.style.width = `${percentage}%`;
+    rtw.style.left = `${newLeft}px`;
+  }
+
+  const timelineText = document.getElementById("timelineText");
+  const timeRemaining = document.getElementById("timeRemaining");
+
+  if (timelineText) {
+    timelineText.textContent = getTimelineText(minuteCounter);
+  }
+  if (timeRemaining) {
+    timeRemaining.textContent = `Noch ca. ${remaining} Minute${remaining === 1 ? "" : "n"}`;
+  }
+
+  // === Vertikale Timeline (Mobile Landscape) ===
+  const bar = document.querySelector(".timeline-vertical-bar");
+  const timelineProgressVertical = document.getElementById("timelineProgressVertical");
+  const rtwVertical = document.getElementById("rtwVertical");
+  const timeRemainingVertical = document.getElementById("timeRemainingVertical");
+
+  if (
+    bar &&
+    bar.offsetHeight > 0 &&
+    rtwVertical &&
+    timelineProgressVertical &&
+    timeRemainingVertical
+  ) {
+    const barHeight = bar.offsetHeight;
+    const rtwHeight = rtwVertical.offsetHeight;
+    const maxTop = barHeight - rtwHeight;
+    const newTop = Math.min((percentage / 100) * barHeight, maxTop);
+
     timelineProgressVertical.style.height = `${percentage}%`;
-    rtwVertical.style.top = `calc(${percentage}% - 10px)`;
+    rtwVertical.style.top = `${newTop}px`;
     timeRemainingVertical.textContent = `ca. ${remaining} Min`;
   }
 }
+
+
+
+
+
 
 function getTimelineText(minute) {
   const texts = [

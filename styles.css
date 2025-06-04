@@ -453,6 +453,8 @@ video {
   background: #f8f8f8;
   border-top: 1px solid #00B165;
   border-bottom: 1px solid #00B165;
+  border-left: 1px solid#00B165;
+  border-right: 1px solid#00B165;
   padding: 12px 5vw;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -586,6 +588,8 @@ video {
     margin-top: 60px !important; /* war 60px + zusätzlich im Landscape mehr */
   }
 
+  
+
 @media screen and (max-width: 768px) and (orientation: landscape) {
   .container {
     margin-top: 60px !important;
@@ -632,14 +636,6 @@ video {
   .timeline-vertical {
     display: flex !important;
   }
-  .timeline-banner {
-    display: block;
-  }
-
-  .timeline-vertical {
-    display: none !important;
-}
-
 
   }
   
