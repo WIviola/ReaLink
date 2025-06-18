@@ -210,18 +210,38 @@ function startMetronomAudio() {
   }
 }
 
+
+window.addEventListener("load", () => {
+  setRulerLength();
+  showStep(0); // Schritt 1 anzeigen
+  speakInstruction("Legen Sie die Hände mittig auf den Brustkorb."); 
+});
+
+
 // === Beobachtet DOM auf Aktivierung von Schritt 3 ===
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
-    if (mutation.target.classList.contains("active") && mutation.target.id === "step3") {
-      startMetronomAudio();
-      speakInstruction("Drücken Sie im Takt des Tons. Entlasten. Drücken. Entlasten.");
+    if (!mutation.target.classList.contains("active")) return;
+
+    switch (mutation.target.id) {
+      case "step1":
+        speakInstruction("Legen Sie die Hände mittig auf den Brustkorb.");
+        break;
+      case "step2":
+        speakInstruction("Beugen Sie sich über die Person. Arme durchgestreckt. Drücken Sie kräftig senkrecht nach unten.");
+        break;
+      case "step3":
+        startMetronomAudio();
+        speakInstruction("Drücken Sie im Takt des Tons. Entlasten. Drücken. Entlasten.");
+        break;
     }
   });
 });
+
 document.querySelectorAll(".step").forEach(el => {
   observer.observe(el, { attributes: true, attributeFilter: ["class"] });
 });
+
 
 // === Sprachansage im Browser (Text-to-Speech) ===
 function speakInstruction(text) {
