@@ -742,7 +742,6 @@ video {
 
 .hero-logo {
   max-width: 160px;
-  height: auto;
   margin: 0;          
   padding: 0;
   display: block;
@@ -781,10 +780,6 @@ main {
   flex: 1;
 }
 
-.hero-content > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
 
 

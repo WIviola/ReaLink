@@ -1,0 +1,85 @@
+/* Reset & Struktur */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .main-header {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .thm-logo {
+    height: 30px;
+    object-fit: contain;
+  }
+  
+  /* Hauptbereich (Hero) */
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .hero-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .hero-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #00522D;
+    margin: 0;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  /* Button */
+  .start-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #00522D;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  
+  .start-button:hover {
+    background-color: #007a43;
+  }
+  
+  /* Footer */
+  .main-footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    padding: 15px 10px;
+    background-color: #e0e0e0;
+  }
+  
