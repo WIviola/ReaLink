@@ -76,7 +76,7 @@ html, body {
   .step-title {
     margin-top: 20px;
     font-size: 1.3em;
-    color: #007A44;
+    color: #00522D;
   }
 }
 
@@ -90,7 +90,7 @@ html, body {
   font-size: 1.6em;
   margin-bottom: 8px;
   margin-top: 60px;
-  color: #007A44;
+  color: #00522D;
 }
 
 /* === Standardformatierung für Schritt-Texte, außer Zeitangaben === */
@@ -303,7 +303,7 @@ html, body {
 
 /* === Navigationsbuttons (Zurück, Weiter, Beenden) === */
 .nav-btn, .end-btn {
-  background: #007A44;
+  background: #00522D;
   color: white;
   border: none;
   padding: 15px;
@@ -341,7 +341,7 @@ html, body {
   display: inline-block;
   padding: 12px 24px;
   font-size: 18px;
-  background-color: #007A44;
+  background-color: #00522D;
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -384,7 +384,7 @@ html, body {
   color: #555;
 }
 .green-bold {
-  color: #00B165;
+  color: #00522D;
   font-weight: bold;
 }
 .subtitle {
