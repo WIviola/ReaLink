@@ -382,6 +382,14 @@ html, body {
   font-size: 1.6em;
   margin-bottom: 10px;
   color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.main-title .green-bold::after {
+  content: "";
+  display: block;
 }
 .green-bold {
   color: #00522D;
