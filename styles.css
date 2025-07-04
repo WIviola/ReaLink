@@ -160,9 +160,31 @@ html, body {
   max-width: 100%;
 }
 
-.header-left .logo-img {
-  height: 70px;
+/* Landing Page – zentriertes Logo */
+/* Zentriertes großes Logo auf Landing Page */
+
+
+.index-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px; /* Höhe des Headers */
+  background-color: transparent;
+  position: relative; /* nicht fixed! */
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
+
+/* === Großes zentriertes ReaLink-Logo === */
+.logo-centered {
+  max-width: 100%;
+  max-height: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+
 
 .header-right .logo-img {
   height: 40px;
@@ -376,7 +398,7 @@ html, body {
   justify-content: center;
   align-items: left;
   text-align: left;
-  padding: 40px 20px;
+  padding: 20px 10px;
 }
 .main-title {
   font-size: 1.6em;
@@ -656,3 +678,114 @@ video {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
+
+.minimal-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  height: 60px;
+}
+
+.thm-logo {
+  height: 30px;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+.logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+
+
+.highlight-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #e0e0e0; 
+  padding: 10px 20px;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo-section.logo-tight {
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+/* HERO-Bereich */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px 20px 40px;
+  background-color: #f9f9f9;
+  flex-direction: column;
+}
+
+.hero-content {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.hero-logo {
+  max-width: 160px;
+  height: auto;
+  margin: 0;          
+  padding: 0;
+  display: block;
+}
+
+.hero-title {
+  font-size: 1.6em;
+  line-height: 1.2;
+  color: #00522D;
+  margin-top: 0;      
+  padding-top: 0;
+}
+
+.hero-subtext {
+  font-size: 1.1em;
+  color: #444;
+  line-height: 1.4;
+  margin: 0;
+}
+/* Vollflächige Seitenstruktur */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Flex-Wrapper für Sticky Footer */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hauptinhalt dehnt sich, Footer bleibt unten */
+main {
+  flex: 1;
+}
+
+.hero-content > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+
