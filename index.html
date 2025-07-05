@@ -4,37 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>REA:Link – Ihr Reanimations-Assistent</title>
-
   <meta name="description" content="REA:Link – Ihr Reanimations-Assistent für schnelle Hilfe im Notfall. Folgen Sie der Anleitung Schritt für Schritt.">
   <link rel="stylesheet" href="styles.css" />
-  <meta http-equiv="refresh" content="15; url=cpr.html" />
 </head>
 <body>
-    <div class="page-wrapper">
-  <!-- Farblich hervorgehobener Header mit THM-Logo -->
-  <header class="highlight-header" role="banner">
-    <img src="assets/THM_Logo_4c.png" alt="Logo der Technischen Hochschule Mittelhessen (THM)" class="thm-logo" />
-  </header>
+  <div class="page-wrapper">
+    <header class="highlight-header" role="banner">
+      <img src="assets/THM_Logo_4c.png" alt="Logo der Technischen Hochschule Mittelhessen (THM)" class="thm-logo" />
+    </header>
 
-  <!-- Hauptinhalt -->
-  <main class="hero" role="main">
-    <!-- Hero-Bereich mit Logo und Textblock -->
-    <div class="hero-content">
-      <img src="assets/ReaLink%20Logo%20neu%202.0%20kein%20Hintegrund.png" alt="ReaLink-Logo: Reanimations-Assistent" class="hero-logo" />
-  
- <h1 class="hero-title"><span class="green-bold"><br>Reanimations-Assistent</span></h1>
-  
-      <p class="hero-subtext">Schnelle <strong>Hilfe im Notfall</strong></p>
-      <p class="hero-subtext">Folgen Sie der <strong>Anleitung – Schritt für Schritt</strong></p>
-  
-      <a href="cpr.html" class="start-btn2" role="button" aria-label="Reanimationsanleitung starten">Start Reanimationsanleitung</a>
-    </div>
-  </main>
-  <!-- Fußzeile -->
-  <footer class="footer" role="contentinfo">
-    <p>Ein Projekt von Viola Winter und Marlon Jouhoff</p>
-    <p>Technische Hochschule Mittelhessen (THM)</p>
-  </footer>
-</div>
+    <main class="hero" role="main">
+      <div class="hero-content">
+        <img src="assets/ReaLink%20Logo%20neu%202.0%20kein%20Hintegrund.png" alt="ReaLink-Logo: Reanimations-Assistent" class="hero-logo" />
+        <h1 class="hero-title"><span class="green-bold"><br>Reanimations-Assistent</span></h1>
+        <p class="hero-subtext">Schnelle <strong>Hilfe im Notfall</strong></p>
+        <p class="hero-subtext">Folgen Sie der <strong>Anleitung – Schritt für Schritt</strong></p>
+        <a href="#" class="start-btn2" role="button" aria-label="Reanimationsanleitung starten">Start Reanimationsanleitung</a>
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <p>Ein Projekt von Viola Winter und Marlon Jouhoff</p>
+      <p>Technische Hochschule Mittelhessen (THM)</p>
+    </footer>
+  </div>
+
+ 
+   <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const startBtn = document.querySelector(".start-btn2");
+
+    if (startBtn) {
+      startBtn.addEventListener("click", (e) => {
+        e.preventDefault(); // Verhindert Standard-Linkverhalten
+        sessionStorage.setItem("hasInteracted", "true");
+        sessionStorage.setItem("playStep", "0");
+        window.location.href = "cpr.html";
+      });
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
