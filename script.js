@@ -10,6 +10,7 @@ const timelineText = document.getElementById("timelineText");
 const timeRemaining = document.getElementById("timeRemaining");
 const rtw = document.getElementById("rtw");
 const audioElement = document.getElementById("metronomAudio");
+const stepAudio = new Audio();
 
 let currentStep = 0;
 let minuteCounter = 0;
@@ -27,25 +28,44 @@ const stepTitles = [
 // === Schrittwechsel mit Anzeige-Logik ===
 function showStep(index) {
   currentStep = index;
+  playStepAudio(index);
+
 
   steps.forEach((step, i) => step.classList.toggle("active", i === index));
   stepTitle.innerText = stepTitles[index];
 
   // Sprachansage nur einmal pro Schritt
-  if (!spokenSteps.has(index)) {
-    switch (index) {
-      case 0:
-        speakInstruction("Legen Sie die Hände mittig auf den Brustkorb.");
-        break;
-      case 1:
-        speakInstruction("Beugen Sie sich über die Person. Arme durchgestreckt. Drücken Sie kräftig senkrecht nach unten.");
-        break;
-      case 2:
-        speakInstruction("Drücken Sie im Takt des Tons. Entlasten. Drücken. Entlasten.");
-        break;
-    }
-    spokenSteps.add(index);
+  //if (!spokenSteps.has(index)) {
+  //  switch (index) {
+   //   case 0:
+   //     speakInstruction("Legen Sie die Hände mittig auf den Brustkorb.");
+    //    break;
+    //  case 1:
+    //    speakInstruction("Beugen Sie sich über die Person. Arme durchgestreckt. Drücken Sie kräftig senkrecht nach unten.");
+    //    break;
+    //  case 2:
+     //   speakInstruction("Drücken Sie im Takt des Tons. Entlasten. Drücken. Entlasten.");
+     //   break;
+   // }
+   // spokenSteps.add(index);
+ // }
+
+ function playStepAudio(index) {
+  stepAudio.pause();              // Falls vorherige Datei noch lief
+  stepAudio.currentTime = 0;      // Zurück zum Anfang
+
+  const filename = `assets/step${index}.mp3`;
+  stepAudio.src = filename;
+
+  const playPromise = stepAudio.play();
+  if (playPromise !== undefined) {
+    playPromise.catch((error) => {
+      console.warn("Audio konnte nicht automatisch abgespielt werden:", error);
+      // Optional: Benutzer informieren
+    });
   }
+}
+ 
 
   const progress = Math.min((index + 1) / (steps.length - 1), 1);
   pageProgressBar.style.width = (progress * 100) + "%";
@@ -111,13 +131,16 @@ function startMetronomAudio() {
 }
 
 // === Sprachansage über Browser-API ===
-function speakInstruction(text) {
-  if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'de-DE';
-    speechSynthesis.speak(utterance);
-  }
-}
+//function speakInstruction(text) {
+ // if ('speechSynthesis' in window) {
+ //   const utterance = new SpeechSynthesisUtterance(text);
+ //   utterance.lang = 'de-DE';
+ //   speechSynthesis.speak(utterance);
+ // }
+//}
+
+
+
 
 // === RTW-Simulation ===
 function moveRTW() {
