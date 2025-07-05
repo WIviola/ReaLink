@@ -19,7 +19,10 @@
         <h1 class="hero-title"><span class="green-bold"><br>Reanimations-Assistent</span></h1>
         <p class="hero-subtext">Schnelle <strong>Hilfe im Notfall</strong></p>
         <p class="hero-subtext">Folgen Sie der <strong>Anleitung – Schritt für Schritt</strong></p>
-        <a href="#" class="start-btn2" role="button" aria-label="Reanimationsanleitung starten">Start Reanimationsanleitung</a>
+        <a href="cpr.html" class="start-btn2" role="button" aria-label="Reanimationsanleitung starten">
+            Start Reanimationsanleitung
+          </a>
+          
       </div>
     </main>
 
@@ -28,24 +31,7 @@
       <p>Technische Hochschule Mittelhessen (THM)</p>
     </footer>
   </div>
-
- 
-   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const startBtn = document.querySelector(".start-btn2");
-
-    if (startBtn) {
-      startBtn.addEventListener("click", (e) => {
-        e.preventDefault(); // Verhindert Standard-Linkverhalten
-        sessionStorage.setItem("hasInteracted", "true");
-        sessionStorage.setItem("playStep", "0");
-        window.location.href = "cpr.html";
-      });
-    }
-  });
-</script>
-
-
+  <script src="script.js"></script>
 
 </body>
 </html>
