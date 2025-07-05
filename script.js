@@ -171,7 +171,13 @@ function setRulerLength() {
 // === Initialisierung ===
 window.addEventListener("load", () => {
   setRulerLength();
-  showStep(0);
+
+  // Nur initial Step anzeigen, wenn CPR-Bereich sichtbar ist (z. B. nach direktem Link)
+  const cprVisible = document.getElementById("cpr").style.display !== "none";
+  if (cprVisible) {
+    showStep(0);
+  }
 });
+
 
 window.addEventListener("resize", setRulerLength);

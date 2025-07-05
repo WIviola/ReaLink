@@ -3,34 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REA:Link – Ihr Reanimations-Assistent</title>
-  <meta name="description" content="REA:Link – Ihr Reanimations-Assistent für schnelle Hilfe im Notfall. Folgen Sie der Anleitung Schritt für Schritt.">
+  <title>REA:Link – Reanimations-Assistent</title>
+  <meta name="description" content="REA:Link – Ihr Reanimations-Assistent für schnelle Hilfe im Notfall.">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-wrapper">
-    <header class="highlight-header" role="banner">
+
+  <!-- Landing Page -->
+  <section id="landing">
+    <header class="highlight-header">
       <img src="assets/THM_Logo_4c.png" alt="Logo der Technischen Hochschule Mittelhessen (THM)" class="thm-logo" />
     </header>
 
-    <main class="hero" role="main">
+    <main class="hero">
       <div class="hero-content">
-        <img src="assets/ReaLink%20Logo%20neu%202.0%20kein%20Hintegrund.png" alt="ReaLink-Logo: Reanimations-Assistent" class="hero-logo" />
+        <img src="assets/ReaLink%20Logo%20neu%202.0%20kein%20Hintegrund.png" alt="ReaLink-Logo" class="hero-logo" />
         <h1 class="hero-title"><span class="green-bold"><br>Reanimations-Assistent</span></h1>
         <p class="hero-subtext">Schnelle <strong>Hilfe im Notfall</strong></p>
         <p class="hero-subtext">Folgen Sie der <strong>Anleitung – Schritt für Schritt</strong></p>
-        <a href="cpr.html" class="start-btn2" role="button" aria-label="Reanimationsanleitung starten">
-            Start Reanimationsanleitung
-          </a>
-          
+        <button id="startBtn" class="start-btn2">Start Reanimationsanleitung</button>
       </div>
     </main>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
       <p>Ein Projekt von Viola Winter und Marlon Jouhoff</p>
       <p>Technische Hochschule Mittelhessen (THM)</p>
     </footer>
+  </section>
+
+  <!-- Reanimationsanleitung (ursprünglich cpr.html) -->
+  <section id="cpr" style="display: none;">
+    <!-- Kopfbereich mit Logo -->
+  <header class="cpr-header" role="banner">
+    <div class="header-left">
+      <!-- ReaLink-Logo -->
+      <a href="index.html" aria-label="Zurück zur Startseite">
+        <img src="assets/REALink_Logo_transparent.png" alt="ReaLink-Logo: Reanimations-Assistent" class="logo" />
+      </a>
+      
+    </div>
+  </header>
+
+  <!-- Fortschrittsbalken oben am Bildschirm -->
+  <div class="page-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="page-progress"></div>
   </div>
+
+  <!-- Hauptcontainer für die Anleitungsschritte -->
+  <div class="container" role="main">
+    <!-- Titel des aktuellen Schritts -->
+    <h1 id="step-title">Druckpunkt finden</h1>
+
+   <!-- Schritt 1 -->
+  <div class="step active" id="step1" tabindex="0">
+    <div class="step-content">
+      <div class="step-text">
+        <p><strong>Knien Sie</strong> sich <strong>neben den Oberkörper.</strong></p>
+        <p>Legen Sie die <strong>Handflächen</strong> flach übereinander <strong>mittig auf</strong> den <strong>Brustkorb.</strong></p>
+      </div>
+      <div class="step-media">
+        <img src="assets/Druckpunkt.png" alt="Hände mittig auf dem Brustkorb positioniert" />
+      </div>
+    </div>
+  </div>
+
+     <!-- Schritt 2 -->
+  <div class="step" id="step2" tabindex="0">
+    <div class="step-content">
+      <div class="step-text">
+        <p><strong>Beugen </strong>Sie sich mit dem Oberkörper <strong>über die Person.</strong></p>
+        <p><strong>Arme durchgestreckt.</p>
+        <p>Drücken</strong> Sie <strong>kräftig senkrecht</strong> nach unten.</p>
+      </div>
+      <div class="step-media">
+        <img src="assets/Druckposition.png" alt="Person mit durchgestreckten Armen über Brustkorb gebeugt" />
+      </div>
+    </div>
+  </div>
+
+    <!-- Schritt 3 -->
+<div class="step" id="step3" tabindex="0">
+  <div class="step-content">
+
+    <!-- Vertikale Timeline (nur sichtbar auf kleinen Geräten im Landscape) -->
+    <div class="timeline-vertical" style="display: none;">
+      <div class="timeline timeline-vertical-bar" role="progressbar">
+        <div class="timeline-progress" id="timelineProgressVertical"></div>
+        <div class="rtw-vertical" id="rtwVertical" aria-hidden="true"></div>
+      </div>
+      <p class="time-remaining vertical-label" id="timeRemainingVertical">ca. 10 Min</p>
+    </div>
+
+    <!-- Hauptinhalt -->
+    <div class="step-text">
+     
+      <p><strong>Der Brustkorb gibt spürbar nach</strong> – bleiben Sie dabei, das ist entscheidend.</p>
+      <p><strong>Im Takt des Tons:</strong> Drücken - entlasten - drücken - entlasten.</p>
+      <audio id="metronomAudio" loop aria-describedby="metronomDesc">
+        <source src="assets/metronom_110bpm.mp3" type="audio/mp3">
+      </audio>
+      <p id="metronomDesc" class="visually-hidden">
+        Dieses Audio ist ein Metronom-Takt mit 110 bpm für den Reanimationsrhythmus.
+      </p>
+      
+    </div>
+
+    
+    <div class="step-media">
+      
+      <div class="video-ruler-wrapper">
+       
+        <div class="ruler-container" aria-hidden="true">
+           <!--
+          <div class="ruler">
+            <div class="ruler-mark" style="left: 0%">0&nbsp;</div>
+            <div class="ruler-mark" style="left: 16.66%">1</div>
+            <div class="ruler-mark" style="left: 33.33%">2</div>
+            <div class="ruler-mark" style="left: 50%">3</div>
+            <div class="ruler-mark" style="left: 66.66%">4</div>
+            <div class="ruler-mark" style="left: 83.33%">5</div>
+            <div class="ruler-mark" style="left: 100%">6&nbsp;cm</div>
+          </div>-->
+        </div>
+        <video autoplay muted loop playsinline width="100%">
+          <source src="assets/Animation%20CPR%20heller%20Hintergrund.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="timeline-text" id="timelineText">Drücken Sie im Takt des Tons!</p>
+    </div>
+  </div>
+  
+
+  <!-- Horizontale Timeline (sichtbar auf Desktop und Portrait) -->
+  <div class="timeline-banner">
+   
+    <p class="emergency-text">Der Rettungsdienst ist unterwegs.</p>
+    <div class="timeline-wrapper">
+      <div class="timeline" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="timeline-progress" id="timelineProgress"></div>
+        <div class="rtw" id="rtw" aria-hidden="true"></div>
+      </div>
+      <p class="time-remaining" id="timeRemaining">Noch ca. 10 Minuten</p>
+    </div>
+  </div>
+</div>
+
+    <!-- Schritt 4: Abschluss + Dank -->
+    <div class="step" id="step4" tabindex="0">
+      <div class="step-content">
+        <div class="step-text">
+      <!-- <div id="step-4" class="step">
+        <p>Schritt 4: Abschluss</p>
+        <button onclick="showStep(2)" class="back-button" aria-label="Zurück zu Schritt 2">Zurück</button>
+      </div>-->
+      <p>Sie haben in einer <strong>extremen Situation gehandelt</strong> - mutig und entschlossen!</p>
+      <p>Damit haben Sie alles getan, was möglich war. Der betroffenen Person wurden die bestmöglichen Chancen gegeben.</p>
+      <p>Sie könnten nun <strong>selbst Unterstützung </strong> oder ein Gespräch benötigen.</p>
+      <p>Die <strong>psychosoziale Notfallversorgung </strong>(PSNV) steht Ihnen <strong>zur Verfügung</strong> – rund um die Uhr, vertraulich, kostenfrei und ohne Hürde.</p>
+      <p>Den Kontakt zur PSNV vermitteln wir gerne über die <strong>112</strong> – jederzeit!</p>
+
+      <!-- Infobereich am Ende -->
+      <div class="ende-banner">
+        <p>Fragen zu REA:Link oder Feedback zu unserem Hilfetool?</p>
+        <p>Dann schreiben Sie uns gerne: feedback@rea-link.de</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <!-- Navigationsbereich unten mit Schaltflächen -->
+  <div class="navigation" id="navigation" role="navigation">
+    <button id="prevBtn" class="nav-btn" aria-label="Zurück zum vorherigen Schritt">Zurück</button>
+    <button id="nextBtn" class="nav-btn" aria-label="Weiter zum nächsten Schritt">Weiter</button>
+    <button id="endBtn" class="end-btn hidden" aria-label="Beenden der Anleitung">Reanimation Beenden</button>
+  </div>
+  </section>
+
+  <script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+      document.getElementById("landing").style.display = "none";
+      document.getElementById("cpr").style.display = "block";
+
+      // Starte Schritt 0, wenn showStep() definiert ist
+      if (typeof showStep === "function") {
+        showStep(0);
+      }
+    });
+  </script>
+
+  <!-- JavaScript-Funktionen (step handling, audio etc.) -->
   <script src="script.js"></script>
 
 </body>

@@ -355,7 +355,7 @@ html, body {
   text-align: center;
   padding: 15px;
   font-size: 0.9em;
-  color: #777;
+  color: #00522D;
 }
 
 /* === Startbutton auf Startseite === */
@@ -370,6 +370,13 @@ html, body {
   margin-top: 20px;
   max-width: 300px;
   text-align: center;
+  box-shadow: none;
+  
+}
+
+.start-btn2:hover {
+  filter: brightness(1.1);      
+  cursor: pointer;             
 }
 
 /* === Responsive Anpassung für kleine Displays === */
@@ -779,6 +786,18 @@ html, body {
 main {
   flex: 1;
 }
+
+
+#landing {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#landing main {
+  flex: 1;
+}
+
 
 
 
