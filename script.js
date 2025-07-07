@@ -181,3 +181,17 @@ window.addEventListener("load", () => {
 
 
 window.addEventListener("resize", setRulerLength);
+
+let initialStepShown = false;
+
+window.addEventListener("load", () => {
+  setRulerLength();
+
+  const cprVisible = document.getElementById("cpr").style.display !== "none";
+  if (cprVisible && !initialStepShown) {
+    showStep(0);
+    initialStepShown = true;
+  }
+});
+
+
