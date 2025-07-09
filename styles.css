@@ -828,6 +828,112 @@ main {
   }
 }
 
+/* Landscape-Optimierung für Landing Page */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .hero-content.landscape-layout {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
 
+  .hero-left,
+  .hero-right {
+    flex: 1;
+  }
+
+  .hero-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-logo {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 10px;
+  }
+
+  .hero-title {
+    font-size: 1.4em;
+  }
+
+  .start-btn2 {
+    font-size: 1em;
+    padding: 10px 16px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  #landing main {
+    padding: 10px 20px;
+  }
+
+  
+}
+
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  /* Damit <section id="landing"> die volle Höhe nutzt */
+#landing {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh; /* Fixiert auf sichtbare Höhe */
+  overflow: hidden;
+}
+
+/* Main-Bereich dehnt sich automatisch */
+#landing main.hero {
+  flex: 1;
+  overflow-y: auto; /* Falls nötig scrollbar innerhalb von main */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+
+  
+  .hero-content.landscape-layout {
+    gap: 12px;
+  }
+
+  .start-btn2 {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  .footer {
+    padding: 5px 7px;
+    font-size: 0.6em;
+    line-height: 1;
+  }
+
+  .highlight-header {
+    height: 40px;
+    padding: 4px 10px;
+  }
+
+  .thm-logo {
+    height: 22px;
+    max-width: 80px;
+  }
+}
+
+
+/* Footer bleibt immer unten */
+.footer {
+  flex-shrink: 0;
+
+}
 
 
