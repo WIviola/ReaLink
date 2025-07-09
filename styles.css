@@ -44,7 +44,6 @@ html, body {
     background: #ccc;
     position: relative;
     border-radius: 3px;
-    z-index: 1;
   }
 
   .timeline-vertical-bar .timeline-progress {
@@ -54,7 +53,6 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
   }
 
   .rtw-vertical {
@@ -63,9 +61,8 @@ html, body {
     background: url('assets/rtw.png') no-repeat center center;
     background-size: contain;
     position: absolute;
-    top: 0;
+    top: -10px;
     left: -7px;
-    z-index: 3;
   }
 
   .vertical-label {
@@ -597,7 +594,7 @@ video {
       background: url('assets/rtw.png') no-repeat center center;
       background-size: contain;
       position: absolute;
-      top: 0;
+      top: -10px;
       left: -7px;
     }
   
@@ -801,6 +798,12 @@ main {
 
 
 
+@media screen and (min-width: 769px) {
+  .hero-logo {
+    max-width: 370px; /* vorher: 160px */
+    height: auto;
+  }
+}
 
 
 
