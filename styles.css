@@ -853,6 +853,13 @@ main {
     height: auto;
   }
 
+  .hero-subtext {
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.3;
+    margin: -1;
+  }
+
   .hero-right {
     display: flex;
     flex-direction: column;
@@ -863,7 +870,8 @@ main {
   }
 
   .hero-title {
-    font-size: 1.4em;
+    font-size: 1.2em;
+    line-height: 1;
   }
 
   .start-btn2 {
