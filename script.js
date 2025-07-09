@@ -195,7 +195,21 @@ window.addEventListener("load", () => {
 });
 
 function showLanding() {
+  // CPR ausblenden
   document.getElementById("cpr").style.display = "none";
-  document.getElementById("landing").style.display = "block";
+
+  // Landing sichtbar machen
+  const landing = document.getElementById("landing");
+  landing.style.display = "flex"; // statt block, damit Flexbox aktiv bleibt
+
+  // Sicherstellen, dass Footer sichtbar ist
+  const footer = landing.querySelector("footer");
+  if (footer) {
+    footer.style.display = "block";
+  }
+
+  // Scroll nach oben (optional, aber empfohlen)
+  window.scrollTo(0, 0);
 }
+
 

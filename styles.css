@@ -763,7 +763,7 @@ video {
 .hero-subtext {
   font-size: 1.1em;
   color: #444;
-  line-height: 1.4;
+  line-height: 2.5;
   margin: 0;
 }
 /* Vollflächige Seitenstruktur */
@@ -800,7 +800,7 @@ main {
 
 @media screen and (min-width: 769px) {
   .hero-logo {
-    max-width: 370px; /* vorher: 160px */
+    max-width: 300px; /* vorher: 160px */
     height: auto;
   }
 }
