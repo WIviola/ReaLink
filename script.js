@@ -194,4 +194,8 @@ window.addEventListener("load", () => {
   }
 });
 
+function showLanding() {
+  document.getElementById("cpr").style.display = "none";
+  document.getElementById("landing").style.display = "block";
+}
 

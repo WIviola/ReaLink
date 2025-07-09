@@ -805,5 +805,29 @@ main {
   }
 }
 
+.timeline-vertical-label {
+  display: none;
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .timeline-vertical-label {
+    display: flex;
+    writing-mode: vertical-rl;       /* vertikale Schreibrichtung */
+    transform: rotate(180deg);       /* damit es von unten nach oben läuft */
+    font-size: 0.7em;
+    color: #5b5d5c72;
+    line-height: 1;                  /* enger Zeilenabstand */
+    text-align: center;
+    margin-right: 0px;               /* geringerer Abstand zur Timeline */
+    height: auto;
+    white-space: nowrap;             /* verhindert Zeilenumbruch */
+  }
+
+  .step-content {
+    gap: 4px; /* weniger Abstand zwischen Label, Timeline & Text */
+  }
+}
+
+
 
 

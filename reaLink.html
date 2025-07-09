@@ -37,9 +37,10 @@
   <header class="cpr-header" role="banner">
     <div class="header-left">
       <!-- ReaLink-Logo -->
-      <a href="index.html" aria-label="Zurück zur Startseite">
+      <a href="#landing" aria-label="Zurück zur Startseite" onclick="showLanding()"> 
         <img src="assets/REALink_Logo_transparent.png" alt="ReaLink-Logo: Reanimations-Assistent" class="logo" />
       </a>
+      
       
     </div>
   </header>
@@ -84,6 +85,15 @@
     <!-- Schritt 3 -->
 <div class="step" id="step3" tabindex="0">
   <div class="step-content">
+
+    <div class="timeline-vertical-label">
+      <span>Der Rettungsdienst ist unterwegs.</span>
+    </div>
+    
+    <div class="timeline-vertical" style="display: none;">
+      <!-- bestehender Zeitstrahl -->
+    </div>
+    
 
     <!-- Vertikale Timeline (nur sichtbar auf kleinen Geräten im Landscape) -->
     <div class="timeline-vertical" style="display: none;">
